@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PR2_SMS", "PR2_SMS\PR2_SMS.csproj", "{A33E2FEC-2C05-4CCA-B291-7A557F7E9FD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "build_inc", "build_inc\build_inc.csproj", "{4A5EA920-E2EA-45C7-A534-A38D4827F9D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sqltextbox", "sqltextbox\sqltextbox.csproj", "{C062B587-5538-4D11-A1B4-5F18BADB9042}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A33E2FEC-2C05-4CCA-B291-7A557F7E9FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A33E2FEC-2C05-4CCA-B291-7A557F7E9FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A33E2FEC-2C05-4CCA-B291-7A557F7E9FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A33E2FEC-2C05-4CCA-B291-7A557F7E9FD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A5EA920-E2EA-45C7-A534-A38D4827F9D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A5EA920-E2EA-45C7-A534-A38D4827F9D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A5EA920-E2EA-45C7-A534-A38D4827F9D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5EA920-E2EA-45C7-A534-A38D4827F9D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C062B587-5538-4D11-A1B4-5F18BADB9042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C062B587-5538-4D11-A1B4-5F18BADB9042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C062B587-5538-4D11-A1B4-5F18BADB9042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C062B587-5538-4D11-A1B4-5F18BADB9042}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

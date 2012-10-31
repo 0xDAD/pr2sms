@@ -1,0 +1,24 @@
+<SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Body>
+<a1:SMSSettings id="ref-1" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/PR2_SMS/PR2_SMS%2C%20Version%3D3.2.28.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<sName id="ref-3">Default</sName>
+<coding>2</coding>
+<user id="ref-4"></user>
+<password href="#ref-4"/>
+<hostName href="#ref-4"/>
+<port>0</port>
+<defaultTo href="#ref-4"/>
+<defaultFrom id="ref-5">any</defaultFrom>
+<charset id="ref-6">utf8</charset>
+<mySqlServerAddress id="ref-7">sms-kannel</mySqlServerAddress>
+<mySqlServerPort xsi:null="1"/>
+<sqlBoxDbName id="ref-8">sqlbox_db</sqlBoxDbName>
+<mySqlUser id="ref-9">root</mySqlUser>
+<mySqlPass id="ref-10">5145</mySqlPass>
+<requestDlr>false</requestDlr>
+<dlrMask>18</dlrMask>
+<checkNumbers>false</checkNumbers>
+<filterData>false</filterData>
+</a1:SMSSettings>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
