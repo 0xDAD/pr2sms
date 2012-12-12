@@ -7,6 +7,7 @@ using MyDebug;
 using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Web;
 
 namespace PR2_SMS
 {
@@ -135,9 +136,12 @@ namespace PR2_SMS
                 while (reader.Read())
                 {
                     SqlDataContainer list = new SqlDataContainer(reader.FieldCount);
-                    Encoding enc = Encoding.UTF8 ;
-                    if (!reader.IsDBNull(14))
-                        enc = reader.GetString(14) == "0"?Encoding.UTF8:Encoding.BigEndianUnicode;
+                    //Encoding enc = Encoding.UTF8 ;
+                    //if (!reader.IsDBNull(14))
+                    //    enc = reader.GetString(14) == "0"?Encoding.UTF8:Encoding.BigEndianUnicode;
+                    bool bNeedConvert = false;
+                    if(!reader.IsDBNull(14)) 
+                        bNeedConvert = "2" == reader.GetString("coding");
                     for(int i=0;i<reader.FieldCount;i++)
                     {
                         try
@@ -147,8 +151,12 @@ namespace PR2_SMS
                             {
                                 s = reader.GetString(i);
                                 if (s == null) s = string.Empty; 
-                                if (i == 5)
-                                    Decode(ref s,enc);
+                                //if (i == 5)
+                                //    Decode(ref s,enc);
+                                if (bNeedConvert && i == 5)
+                                {
+                                    s = HttpUtility.UrlDecode(s, Encoding.BigEndianUnicode);
+                                }
                             }
                             list[i] = s;
                         }

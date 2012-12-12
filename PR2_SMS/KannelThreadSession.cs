@@ -47,7 +47,10 @@ namespace PR2_SMS
 
                 threadSessionStateChanged.Invoke(SenderState.QueueReady);
                 if (mainThread==null || mainThread.ThreadState != ThreadState.Running)
-                { mainThread = new Thread(ts); mainThread.Start(); }
+                { 
+                    mainThread = new Thread(ts); 
+                    mainThread.Start(); 
+                }
                 threadSessionStateChanged.Invoke(SenderState.Started);
                 return true;
         }
@@ -55,7 +58,8 @@ namespace PR2_SMS
         {
             progressChanged(0);
             int firstCnt = internalQueue.Count;
-            while (internalQueue.Count > 0 && canWork)
+            int counter = 1000;
+            while (counter > 0 && internalQueue.Count > 0 && canWork)
             {
                 Monitor.Enter(internalQueue);
                 TargetInfo ti = internalQueue.Dequeue();
@@ -64,8 +68,7 @@ namespace PR2_SMS
                 {
                     string req = settings.GetKannelRequest(string.Format(ti.message,ti.paramList.ToArray()), ti.phoneNumber);
                     ti.answer = HttpReq.Send(req);
-                    ti.preStatus = AnalyzeOutput(ti.answer);
-               
+                    ti.preStatus = AnalyzeOutput(ti.answer);               
 
                 progressChanged(100 - (int)(((Double)internalQueue.Count / (Double)firstCnt)*100));                
                 answerReceived(ti.Index);
@@ -83,6 +86,7 @@ namespace PR2_SMS
             }
             threadSessionStateChanged.Invoke(SenderState.Stopped);
             progressChanged(0);
+            counter--;
         }
 
         private MessageStatus AnalyzeOutput(string p)

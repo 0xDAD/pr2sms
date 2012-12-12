@@ -119,6 +119,7 @@ namespace PR2_SMS
             if (msm.MsgList != null && msm.MsgList.Count > 0)
             {
                 currentView = GetTabLv("MySQL", "sqlView");
+                currentView.VirtualListSize = 0;
                 UpdateSqlViewColumns();
                 currentView.Invoke((ChangeProgressNotifier)delegate(int cnt)
                  {

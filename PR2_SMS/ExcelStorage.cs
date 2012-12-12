@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Office = Microsoft.Office.Core;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Diagnostics;
 
@@ -61,7 +60,7 @@ namespace PR2_SMS
         public bool OpenDocument(string fileName)
         {
             CloseDocument();
-            excelApp = new Excel.ApplicationClass();
+            excelApp = new Excel.Application();
 
             if (excelApp == null) return false;
             excelApp.Visible = vk_app_visible;

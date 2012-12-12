@@ -67,6 +67,7 @@ namespace PR2_SMS
             if (!File.Exists(fileName))
                 return null;
             templateFilePath = fileName;
+
             if (curES != null)
             {
                 curES.CloseDocument();               
@@ -408,8 +409,10 @@ namespace PR2_SMS
             if (sd.ShowDialog() == DialogResult.OK)
             {
                 SqlBoxXLSWrite sw = new SqlBoxXLSWrite();
-                sw.list = currentView;
-                sw.WriteDateToExcel(sd.FileName, msm.LviList, "A1", "H1");
+                //sw.list = currentView;
+                sw.list = (EnhancedListView)tabControl1.SelectedTab.Controls[0];
+                char lastCahr = (char)((int)'A' + sw.list.Columns.Count);
+                sw.WriteDateToExcel(sd.FileName, msm.LviList, "A1", "" + lastCahr + "1");
             }
 
         }
@@ -447,15 +450,14 @@ namespace PR2_SMS
                 {
                     if (DialogResult.Yes == MessageBox.Show("Сохранить изменения?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                     {                        
-                       MassMsgStorage.Save(massmsgFilePath,massMsg);
+                       MassMsgStorage.Save(massmsgFilePath, massMsg);
                     }                                        
                 }
                 massmsgFilePath = Path.ChangeExtension(opf.FileName, "pr2");
                 ResetAll();
                 LoadMessageList(opf.FileName);
                 
-                Thread th = null;
-                th = new Thread(new ThreadStart(CreateMassMsg));
+                Thread th = new Thread(new ThreadStart(CreateMassMsg));
                 th.Start();   
             }
         }
@@ -512,10 +514,7 @@ namespace PR2_SMS
             }
         }
 
-        private void toolStripButton9_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
 
   

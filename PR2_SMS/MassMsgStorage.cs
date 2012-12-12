@@ -318,11 +318,16 @@ namespace PR2_SMS
             for (int i = 0; i < rcvList.Count; i++)
             {
                 SqlDataContainer sqdc;
-                if (fastStorage.TryGetValue(rcvList[i].phoneNumber,out sqdc))
-                {                    
+                if (fastStorage.TryGetValue(rcvList[i].phoneNumber, out sqdc))
+                {
                     int dlrmask = int.Parse(sqdc[SqlBoxColId.dlr_mask]);
                     rcvList[i].dlr = (DLRStatus)dlrmask;
                     updatedCnt++;
+                }
+                else
+                {
+                    if (rcvList[i].preStatus == MessageStatus.Accepted || rcvList[i].preStatus == MessageStatus.Sent)
+                        rcvList[i].dlr = DLRStatus.DeliveredToPhone;
                 }
                 if (changeProgressDel != null)
                     changeProgressDel.Invoke((int)((((double)i / rcvList.Count)) * 100));

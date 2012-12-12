@@ -62,12 +62,12 @@ namespace PR2_SMS
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ñîçäàòüÎò÷åòToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ñîçäàòüÎò÷åòToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.docView = new PR2_SMS.EnhancedListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -189,7 +189,6 @@ namespace PR2_SMS
             this.toolStripButton9.Size = new System.Drawing.Size(63, 35);
             this.toolStripButton9.Text = "Î÷èñòèòü";
             this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
             // toolStripButton8
             // 
@@ -247,6 +246,7 @@ namespace PR2_SMS
             this.toolStripButton12.Text = "Ñòàğò";
             this.toolStripButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton12.ToolTipText = "Çàïóñê/îñòàíîâêà ğàññûëêè";
+            this.toolStripButton12.Click += new System.EventHandler(this.start_Click);
             // 
             // mainProgressBar
             // 
@@ -372,6 +372,20 @@ namespace PR2_SMS
             this.tabPage1.Text = "Ñïèñîê îòïğàâêè";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ñîçäàòüÎò÷åòToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(151, 26);
+            // 
+            // ñîçäàòüÎò÷åòToolStripMenuItem
+            // 
+            this.ñîçäàòüÎò÷åòToolStripMenuItem.Name = "ñîçäàòüÎò÷åòToolStripMenuItem";
+            this.ñîçäàòüÎò÷åòToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.ñîçäàòüÎò÷åòToolStripMenuItem.Text = "Ñîçäàòü îò÷åò";
+            this.ñîçäàòüÎò÷åòToolStripMenuItem.Click += new System.EventHandler(this.createReport_Click);
+            // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Èìÿ";
@@ -393,20 +407,6 @@ namespace PR2_SMS
             this.columnHeader8.Text = "Ñòàòóñ";
             this.columnHeader8.Width = 116;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ñîçäàòüÎò÷åòToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(151, 26);
-            // 
-            // ñîçäàòüÎò÷åòToolStripMenuItem
-            // 
-            this.ñîçäàòüÎò÷åòToolStripMenuItem.Name = "ñîçäàòüÎò÷åòToolStripMenuItem";
-            this.ñîçäàòüÎò÷åòToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.ñîçäàòüÎò÷åòToolStripMenuItem.Text = "Ñîçäàòü îò÷åò";
-            this.ñîçäàòüÎò÷åòToolStripMenuItem.Click += new System.EventHandler(this.createReport_Click);
-            // 
             // docView
             // 
             this.docView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -427,7 +427,7 @@ namespace PR2_SMS
             this.docView.UseCompatibleStateImageBehavior = false;
             this.docView.View = System.Windows.Forms.View.Details;
             this.docView.VirtualMode = true;
-            // 
+                        // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Èìÿ";
@@ -485,7 +485,6 @@ namespace PR2_SMS
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -519,5 +518,6 @@ namespace PR2_SMS
         private System.Windows.Forms.ToolStripButton toolStripButton11;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ñîçäàòüÎò÷åòToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }

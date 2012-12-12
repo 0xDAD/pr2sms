@@ -60,8 +60,9 @@ namespace PR2_SMS
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="holdingsList"></param>
-        public void WriteDateToExcel(string fileName, List<T> list, string startColumn, string endColumn)
+        public void WriteDateToExcel(string fileName, List<T> list, object startColumn, object endColumn)
         {
+            this.ActivateExcel();
             this.FillRowData(list);
             this.FillExcelWithData();
             this.FillHeaderColumn(Headers, startColumn, endColumn);
@@ -104,14 +105,14 @@ namespace PR2_SMS
         /// <param name="headers"></param>
         /// <param name="startColumn"></param>
         /// <param name="endColumn"></param>
-        protected void FillHeaderColumn(object[] headers, string startColumn, string endColumn)
+        protected void FillHeaderColumn(object[] headers, object startColumn, object endColumn)
         {                       
             _excelRange = _excelSheet.get_Range(startColumn, endColumn);
             _excelRange.set_Value(_value, headers);
-            if (BoldHeaders == true)
-            {
-                this.BoldRow(startColumn, endColumn);
-            }
+            //if (BoldHeaders == true)
+            //{
+            //    this.BoldRow(startColumn, endColumn);
+            //}
             _excelRange.EntireColumn.AutoFit();
         }
         /// <summary>
@@ -123,7 +124,7 @@ namespace PR2_SMS
         {
             _excelRange = _excelSheet.get_Range("A1", _value);
             _excelRange = _excelRange.get_Resize(RowCount + 1, ColumnCount);
-            _excelRange.NumberFormat = "Текстовый";
+            //_excelRange.NumberFormat = "Текстовый";
             _excelRange.set_Value(Missing.Value, ExcelData);
             _excelRange.EntireColumn.AutoFit();
         }
